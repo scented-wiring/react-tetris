@@ -7,6 +7,7 @@ export const createStage = () =>
   );
 
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
+  // Using for loops to be able to return (and break). Not possible with forEach
   for (let y = 0; y < player.tetromino.length; y += 1) {
     for (let x = 0; x < player.tetromino[y].length; x += 1) {
       // 1. Check that we're on an actual Tetromino cell
@@ -26,4 +27,6 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
       }
     }
   }
+  // 5. If everything above is false
+  return false;
 };
